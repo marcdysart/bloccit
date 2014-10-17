@@ -54,3 +54,5 @@ gem 'spring',        group: :development
 
 # Devise for authentication of users
 gem 'devise'
+
+gem 'figaro', '1.0'
