@@ -61,4 +61,12 @@ gem 'pundit'
 
 gem 'simple_form'
 
+# For typing with Markup systel
 gem 'redcarpet'
+# For image uploading using an avatar
+ gem 'carrierwave'
+ # For image uploading
+ gem 'mini_magick'
+ 
+# For storing images in Amazon's S3
+gem 'fog'
