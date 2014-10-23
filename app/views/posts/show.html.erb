@@ -1,4 +1,6 @@
-<h1><%= @post.title %></h1>
+ <%= render partial: 'postmarkdown', locals: { topic: @topic, post: @post } %>
+
+
 
 <div class="row">
   <div class="col-md-8">
