@@ -67,6 +67,8 @@ gem 'redcarpet'
  gem 'carrierwave'
  # For image uploading
  gem 'mini_magick'
- 
+
 # For storing images in Amazon's S3
 gem 'fog'
+
+gem 'will_paginate', '~> 3.0.5'
