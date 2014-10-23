@@ -11,6 +11,15 @@ def form_group_tag(errors, &block)
    end
 end
 
+def form_group(errors)
+     if errors.any?
+      @error_class='has-error'
+     else
+       @error_class=''
+     end
+   end
+end
+
 
 def markdown(text)
   renderer = Redcarpet::Render::HTML.new
