@@ -9,7 +9,6 @@ def form_group_tag(errors, &block)
        content_tag :div, capture(&block), class: 'form-group'
      end
    end
-end
 
 def form_group(errors)
      if errors.any?
@@ -17,8 +16,12 @@ def form_group(errors)
      else
        @error_class=''
      end
-   end
+
 end
+   
+end
+
+
 
 
 def markdown(text)
