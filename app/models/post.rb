@@ -21,7 +21,7 @@ class Post < ActiveRecord::Base
   end
 
   private
-  def render_as_markdown
+  def render_as_markdown(text)
     renderer = Redcarpet::Render::HTML.new
     extensions = {fenced_code_blocks: true}
     redcarpet = Redcarpet::Markdown.new(renderer, extensions)

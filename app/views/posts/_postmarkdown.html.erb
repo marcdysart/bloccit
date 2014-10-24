@@ -1,8 +1,14 @@
 
 
- <h1><%= post.markdown_title %></h1>
+<div class="col-md-8">
 
- <div class="form-group <%= @error_class %>">
-   <%= f.label :title %>
-   <%= f.text_field :title, class: 'form-control', placeholder: "Enter post title" %>
- </div>
+
+  <h4 class="media-heading">
+    <%= post.markdown_title %>
+  </h4>
+
+  <p>
+    <%= post.markdown_body %>
+  </p>
+
+</div>

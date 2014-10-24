@@ -9,12 +9,12 @@
       </ul>
     </div>
   <% end %>
-  <div class="form-group <%= @error_class %>">
+  <div class="form-group <%= error_class %>">
     <%= f.label :title %>
     <%= f.text_field :title, class: 'form-control', placeholder: "Enter post title" %>
   </div>
 
-<div class="form-group <%= @error_class %>">
+<div class="form-group <%= error_class %>">
     <%= f.label :body %>
     <%= f.text_area :body, rows: 8, class: 'form-control', placeholder: "Enter post body" %>
 </div>
