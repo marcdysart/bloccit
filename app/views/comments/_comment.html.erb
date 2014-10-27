@@ -1,0 +1,14 @@
+<h3>This is going to show all the old comments </h3>
+
+  <div class="media">
+    <div class="media-body">
+      <h4 class="media-heading">
+         <%= [@topic, post] %>
+       </h4>
+        <small>
+         <%= image_tag(post.user.avatar.tiny.url) if comment.post.user.avatar? %>
+         submitted <%= time_ago_in_words(post.created_at) %> ago by
+         <%= comment.user.name %><br/>
+       </small>
+    </div>
+  </div>

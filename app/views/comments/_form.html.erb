@@ -9,5 +9,11 @@
       </ul>
     </div>
   <% end %>
-  <h1> Comments Should be Listed Here</h1>
+  <<h1>Hello</h1>
+
+  <%= form_group_tag(post.errors[:title]) do %>
+    <%= f.label :title %>
+    <%= f.text_field :title, class: 'form-control', placeholder: "Enter post title" %>
+  <% end %>
+  <h1> A new Comment Should be Listed Here</h1>
 <% end %>

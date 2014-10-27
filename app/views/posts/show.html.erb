@@ -9,6 +9,14 @@
      </small>
     <p><%= @post.body %></p>
     <%= image_tag(@post.image) if @post.image? %></p>
+
+    <% if @comments.any? %>
+    <% @comments.each do |comment| %>
+    <%= render partial: 'comments/comment', locals: { topic: @topic, post: @post } %>
+    <% end %>
+    <% end %>
+
+
     <%= render partial: 'comments/form', locals: { topic: @topic, post: @post } %>
   </div>
   <div class="col-md-4">
