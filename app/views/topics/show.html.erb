@@ -13,13 +13,17 @@
           <h4 class="media-heading">
              <%= link_to (post.markdown_title), [@topic, post] %>
            </h4>
+           <%= image_tag(post.image.thumb) if post.image? %></p>
             <small>
-             submitted <%= time_ago_in_words(post.created_at) %> ago by <%= post.user.name %><br/>
+             <%= image_tag(post.user.avatar.tiny.url) if post.user.avatar? %>
+             submitted <%= time_ago_in_words(post.created_at) %> ago by
+             <%= post.user.name %><br/>
              <%= post.comments.count %> Comments
            </small>
         </div>
       </div>
     <% end %>
+    <%= will_paginate @posts %>
   </div>
  <div class="col-md-4">
    <% if policy(Post.new).create? %>

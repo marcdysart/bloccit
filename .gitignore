@@ -18,3 +18,6 @@
 # Ignore environment variables
 /config/application.yml
 config/secrets.yml
+
+# Carrierwave image
+public/uploads

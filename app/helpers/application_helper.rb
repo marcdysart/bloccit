@@ -14,8 +14,6 @@
         error_class= 'form-group'
        end
   end
-
-
  end
 
 
