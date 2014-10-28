@@ -10,15 +10,9 @@
     <p><%= @post.body %></p>
     <%= image_tag(@post.image) if @post.image? %></p>
 
-    <% @comment.map{ |comment| comment.body } %>
-    <% @comments.each do |comment| %>
-    <p><% post.comments %></p>
-    <p><% @comment.body %></p>
-    <p><% comment.body %></p>
-
-    <% end %>
 
 
+    <%= render partial: 'comments/comment', locals: { topic: @topic, post: @post, comment: @comment } %>
 
     <%= render partial: 'comments/form', locals: { topic: @topic, post: @post, comment: @comment } %>
   </div>

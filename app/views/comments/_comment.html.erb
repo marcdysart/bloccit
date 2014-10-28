@@ -1,14 +1,17 @@
 <h3>This is going to show all the old comments </h3>
+<%= post.comments.count %>
+<%= post.comments.each { |comment|
+  p comment.body } %>
 
   <div class="media">
     <div class="media-body">
       <h4 class="media-heading">
-         <%= [@topic, post, comment] %>
+         <p><%=  post.comments %></p>
+
        </h4>
         <small>
-         <%= image_tag(post.user.avatar.tiny.url) if comment.post.user.avatar? %>
-         submitted <%= time_ago_in_words(post.created_at) %> ago by
-         <%= comment.user.name %><br/>
+         submitted by
+         <%= current_user.name %><br/>
        </small>
     </div>
   </div>
