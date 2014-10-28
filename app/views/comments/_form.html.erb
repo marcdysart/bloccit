@@ -1,4 +1,4 @@
- <%= form_for [topic, post] do |f| %>
+ <%= form_for [topic, post, comment] do |f| %>
   <% if post.errors.any? %>
     <div class="alert alert-danger">
       <h4>There are <%= pluralize(post.errors.count, "error") %>.</h4>
@@ -9,11 +9,13 @@
       </ul>
     </div>
   <% end %>
-  <<h1>Hello</h1>
 
-  <%= form_group_tag(post.errors[:title]) do %>
-    <%= f.label :title %>
-    <%= f.text_field :title, class: 'form-control', placeholder: "Enter post title" %>
-  <% end %>
-  <h1> A new Comment Should be Listed Here</h1>
+  <div class="form-group">
+     <%= f.label :"Enter New Comment" %>
+     <%= f.text_field :body, class: 'form-control', placeholder: "Enter Comment" %>
+  </div>
+
+   <div class="form-group">
+     <%= f.submit "Save Comment", class: 'btn btn-success' %>
+   </div>
 <% end %>

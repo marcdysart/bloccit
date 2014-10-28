@@ -10,14 +10,17 @@
     <p><%= @post.body %></p>
     <%= image_tag(@post.image) if @post.image? %></p>
 
-    <% if @comments.any? %>
+    <% @comment.map{ |comment| comment.body } %>
     <% @comments.each do |comment| %>
-    <%= render partial: 'comments/comment', locals: { topic: @topic, post: @post } %>
-    <% end %>
+    <p><% post.comments %></p>
+    <p><% @comment.body %></p>
+    <p><% comment.body %></p>
+
     <% end %>
 
 
-    <%= render partial: 'comments/form', locals: { topic: @topic, post: @post } %>
+
+    <%= render partial: 'comments/form', locals: { topic: @topic, post: @post, comment: @comment } %>
   </div>
   <div class="col-md-4">
     <% if policy(@post).edit? %>

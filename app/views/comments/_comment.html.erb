@@ -3,7 +3,7 @@
   <div class="media">
     <div class="media-body">
       <h4 class="media-heading">
-         <%= [@topic, post] %>
+         <%= [@topic, post, comment] %>
        </h4>
         <small>
          <%= image_tag(post.user.avatar.tiny.url) if comment.post.user.avatar? %>
