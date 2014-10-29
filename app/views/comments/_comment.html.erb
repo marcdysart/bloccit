@@ -1,19 +1,18 @@
 <h3>Comments: </h3>
   <div class="media">
+
     <div class="media-body">
       <p class="media-heading">
          <% post.comments.each do |comment| %>
-            <% if comment.user.nil? %>
-          <!-- This is here because the new comments aren't being saved when a user hasn't been logged in -->
               <% unless current_user.nil? %>
-                <p><%= comment.body  %>  <small><em><%= current_user.name %></em></small><br/></p>
+                <p><%= comment.body  %>  <small><em><%= current_user.name %></em></small>
+                  <% if policy(comment).destroy? %>
+                    | <%= link_to "Delete", [@topic, @post, comment], method: :delete %>
+                  <% end %>
+                </p>
               <% end %>
-            <% else %>
-              <p><%= comment.body  %>  <small><em><%= comment.user.name %></em></small><br/></p>
-           <% end %>
-
          <% end %>
-       </p>
+       <br/></p>
 
     </div>
   </div>
