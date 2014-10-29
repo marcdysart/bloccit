@@ -4,7 +4,7 @@
       <p class="media-heading">
          <% post.comments.each do |comment| %>
             <% if comment.user.nil? %>
-          <!-- This is here because the new comments are being saved when a user hasn't been logged in -->
+          <!-- This is here because the new comments aren't being saved when a user hasn't been logged in -->
               <% unless current_user.nil? %>
                 <p><%= comment.body  %>  <small><em><%= current_user.name %></em></small><br/></p>
               <% end %>
