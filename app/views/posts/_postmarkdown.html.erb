@@ -1,11 +1,11 @@
 
 
-<div class="col-md-8">
 
 
-  <h4 class="media-heading">
+
+  <h3 class="media-heading">
     <%= post.markdown_title %>
-  </h4>
+  </h3>
 
     <small>
       <%= image_tag(@post.user.avatar.tiny.url) if @post.user.avatar? %>
@@ -17,5 +17,3 @@
     <%= post.markdown_body %>
     <%= image_tag(@post.image) if @post.image? %></p>
   </p>
-
-</div>

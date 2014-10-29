@@ -10,8 +10,7 @@
     </div>
   <% end %>
 
-
-    <%= content_tag :div, class: form_group(post.errors[:body]) do -%>
+    <%= content_tag :div, class: form_group(post.errors[:title]) do -%>
       <%= f.label :title %>
       <%= f.text_field :title, class: 'form-control', placeholder: "Enter post title" %>
     <% end %>
@@ -22,17 +21,18 @@
         <%= f.text_area :body, rows: 8, class: 'form-control', placeholder: "Enter post body" %>
     <% end %>
 
-
-  <div class="form-group">
-     <p>Current image</p>
-     <%= image_tag( post.image.url ) %>
+    <% unless post.image.url.nil? %>
+      <div class="form-group">
+         <p>Current image</p>
+         <%= image_tag( post.image.url ) %>
+       </div>
+     <% end %>
+   <div class="form-group">
+     <%= f.label :image %>
+     <%= f.file_field :image %>
+     <%= f.hidden_field :image_cache %>
    </div>
 
- <div class="form-group">
-   <%= f.label :image %>
-   <%= f.file_field :image %>
-   <%= f.hidden_field :image_cache %>
- </div>
   <div class="form-group">
     <%= f.submit "Save", class: 'btn btn-success' %>
   </div>

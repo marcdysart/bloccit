@@ -3,7 +3,15 @@
 
 <div class="row">
 
-  <%= render partial: 'postmarkdown', locals: { post: @post } %>
+  <div class="col-md-8">
+    <%= render partial: 'postmarkdown', locals: { post: @post } %>
+
+
+    <%= render partial: 'comments/comment', locals: { topic: @topic, post: @post, comment: @comment } %>
+    <% unless current_user.nil? %>
+      <%= render partial: 'comments/form', locals: { topic: @topic, post: @post, comment: @comment } %>
+    <% end %>
+  </div>
 
   <div class="col-md-4">
     <% if policy(@post).edit? %>
