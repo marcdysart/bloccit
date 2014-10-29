@@ -9,13 +9,23 @@
       </ul>
     </div>
   <% end %>
+  <form class="form-inline" role="form">
+    <div class="form-group">
 
-  <div class="form-group">
-     <%= f.label :"Enter New Comment" %>
-     <%= f.text_field :body, class: 'form-control', placeholder: "Enter Comment" %>
-  </div>
+       <%= f.label :"Enter New Comment" %>
+       <div class="row">
+         <div class="col-xs-6">
+            <%= f.text_field :body, class: 'form-control', placeholder: "Enter Comment" %>
+        </div>
+        <div class="col-xs-2">
+          <%= f.submit "Save Comment", class: 'btn btn-default' %>
+        </div>
+        <div class="col-xs-4">
+        </div>
+      </div>
+    </div>
 
-   <div class="form-group">
-     <%= f.submit "Save Comment", class: 'btn btn-success' %>
-   </div>
+  </form>
+
+
 <% end %>

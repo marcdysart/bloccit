@@ -1,17 +1,19 @@
-<h3>This is going to show all the old comments </h3>
-<%= post.comments.count %>
-<%= post.comments.each { |comment|
-  p comment.body } %>
-
+<h3>Comments: </h3>
   <div class="media">
     <div class="media-body">
-      <h4 class="media-heading">
-         <p><%=  post.comments %></p>
+      <p class="media-heading">
+         <% post.comments.each do |comment| %>
+            <% if comment.user.nil? %>
+          <!-- This is here because the new comments are being saved when a user hasn't been logged in -->
+              <% unless current_user.nil? %>
+                <p><%= comment.body  %>  <small><em><%= current_user.name %></em></small><br/></p>
+              <% end %>
+            <% else %>
+              <p><%= comment.body  %>  <small><em><%= comment.user.name %></em></small><br/></p>
+           <% end %>
 
-       </h4>
-        <small>
-         submitted by
-         <%= current_user.name %><br/>
-       </small>
+         <% end %>
+       </p>
+
     </div>
   </div>
