@@ -7,7 +7,7 @@
               <% unless current_user.nil? %>
                 <p><%= comment.body  %>  <small><em><%= current_user.name %></em></small>
                   <% if policy(comment).destroy? %>
-                    | <%= link_to "Delete", [@topic, @post, comment], method: :delete %>
+                    | <%= link_to "Delete", [@post, comment], method: :delete %>
                   <% end %>
                 </p>
               <% end %>
