@@ -5,7 +5,7 @@ class Post < ActiveRecord::Base
     belongs_to :topic
     mount_uploader :image, ImageUploader
 
-
+  after_create :create_vote
 
   scope :created_before, ->(time) { where("created_at < ?", time) }
   scope :ordered_by_title, -> { order('title DESC') }
@@ -50,5 +50,11 @@ class Post < ActiveRecord::Base
     extensions = {fenced_code_blocks: true}
     redcarpet = Redcarpet::Markdown.new(renderer, extensions)
     (redcarpet.render text).html_safe
+  end
+
+  private
+  def create_vote
+     user.votes.create(value: 1, post: self)
+
   end
 end
