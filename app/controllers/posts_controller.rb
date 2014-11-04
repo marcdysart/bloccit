@@ -48,6 +48,23 @@ class PostsController < ApplicationController
     end
   end
 
+  def save_with_initial_vote
+    if @post.create_vote
+      @post.save
+    else
+    end
+  end
+
+  ActiveRecord::Base.transaction do
+    Post.create(title: 'Whatever', body: 'Post bodies must be pretty long.')
+    Base.transaction do
+      Post.create(title: 'Whatever', body: 'Post bodies must be pretty long.')
+      raise ActiveRecord::Rollback
+      end
+  end
+
+
+
   def update
     @topic = Topic.find(params[:topic_id])
     @post = Post.find(params[:id])
