@@ -7,7 +7,7 @@
 
   <h3 class="media-heading">
     <%= post.markdown_title %>
-    <%= render partial: 'votes/voter', locals: { post: @post } %>
+    <%= render partial: 'votes/voter', locals: { post: @post, voted: @voted} %>
 
   </h3>
 
