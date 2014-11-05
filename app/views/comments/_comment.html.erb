@@ -1,19 +1,19 @@
 
    <%= content_tag :div, class: 'media', id: "comment-#{comment.id}" do %>
-    <% unless comment.user.nil? %>
+
       <%= link_to '#', class: 'pull-left' do %>
         <%= image_tag(comment.user.avatar.small.url) if comment.user.avatar? %>
       <% end %>
-    <% end %>
+
 
     <div class="media-body">
       <p class="media-heading">
 
                 <p><%= comment.body  %>
                 <small>
-                  <% unless comment.user.nil? %>
+
                     <em><%= comment.user.name %></em>
-                  <% end %>
+
                 </small>
                   <% if policy(comment).destroy? %>
                     | <%= link_to "Delete", [@post, comment], method: :delete %>
