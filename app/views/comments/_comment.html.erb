@@ -1,26 +1,20 @@
 
    <%= content_tag :div, class: 'media', id: "comment-#{comment.id}" do %>
 
-      <%= link_to '#', class: 'pull-left' do %>
-        <%= image_tag(comment.user.avatar.small.url) if comment.user.avatar? %>
-      <% end %>
+    <%= link_to '#', class: 'pull-left' do %>
+      <%= image_tag(comment.user.avatar.small.url) if comment.user.avatar? %>
+    <% end %>
 
 
     <div class="media-body">
-      <p class="media-heading">
 
                 <p><%= comment.body  %>
                 <small>
-
                     <em><%= comment.user.name %></em>
-
                 </small>
                   <% if policy(comment).destroy? %>
                     | <%= link_to "Delete", [@post, comment], method: :delete %>
                   <% end %>
                 </p>
-
-       <br/></p>
-
     </div>
   <% end %>
