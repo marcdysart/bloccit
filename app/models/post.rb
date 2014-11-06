@@ -12,6 +12,7 @@ class Post < ActiveRecord::Base
   scope :ordered_by_title, -> { order('title DESC') }
   scope :ordered_by_reverse_created_at, -> {order('created_at ASC')}
   default_scope { order('rank DESC') }
+    scope :visible_to, -> (user) { user ? all : joins(:topic).where('topics.public' => true) }
 
    validates :title, length: { minimum: 5 }, presence: true
    validates :body, length: { minimum: 20 }, presence: true
@@ -49,7 +50,7 @@ class Post < ActiveRecord::Base
      user.votes.create(value: 1, post: self)
 
   end
-  
+
   def save_with_initial_vote
     ActiveRecord::Base.transaction do
       post = Post.create(title: @title, body: @body)
