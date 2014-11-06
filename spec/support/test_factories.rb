@@ -5,7 +5,7 @@ module TestFactories
       post_options = {
         title: 'Post title',
         body: 'Post bodies must be pretty long.',
-        topic: Topic.create(name: 'Topic name'),
+        topic: Topic.create(name: 'Topic name', public: true),
         user: authenticated_user
       }.merge(options)
      Post.create(post_options)
@@ -23,7 +23,6 @@ module TestFactories
      comment_options = {
        body: "A great Comment"
      }.merge(options)
-     comment = Comment.new(post: @post, user: @user, body: "A Comment")
      comment = Comment.new(comment_options)
      allow(comment).to receive(:send_favorite_emails)
      comment.save
