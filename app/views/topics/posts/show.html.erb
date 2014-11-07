@@ -8,8 +8,9 @@
     <%= render partial: 'postmarkdown', locals: { post: @post } %>
 
     <h3>Comments: </h3>
-
-        <%= render partial: 'comments/comment', collection: @comments %>
+      <% @post.comments.each do |comment| %>
+        <%= render partial: 'comments/comment', locals: {comment: comment} %>
+      <% end %>
 
     <% unless current_user.nil? %>
       <%= render partial: 'comments/form', locals: { topic: @topic, post: @post, comment: @comment } %>
