@@ -8,13 +8,17 @@
     <%= render partial: 'postmarkdown', locals: { post: @post } %>
 
     <h3>Comments: </h3>
-      <% @post.comments.each do |comment| %>
-        <%= render partial: 'comments/comment', locals: {comment: comment} %>
-      <% end %>
+      <div class='js-comments'>
+        <% @post.comments.each do |comment| %>
+          <%= render partial: 'comments/comment', locals: {comment: comment} %>
+        <% end %>
+      </div>
+      <div class='new-comment'>
 
-    <% unless current_user.nil? %>
-      <%= render partial: 'comments/form', locals: { topic: @topic, post: @post, comment: @comment } %>
-    <% end %>
+        <% unless current_user.nil? %>
+          <%= render partial: 'comments/form', locals: { topic: @topic, post: @post, comment: @comment } %>
+        <% end %>
+      </div>
   </div>
 
   <div class="col-md-4">
