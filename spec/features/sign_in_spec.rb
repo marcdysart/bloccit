@@ -5,7 +5,7 @@
 
    describe "successful" do
      it "redirects to the topics index" do
-       user = build(:user)
+       user = create(:user)
        visit root_path
 
        within '.user-info' do

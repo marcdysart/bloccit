@@ -7,7 +7,6 @@
    Warden.test_mode!
 
    before do
-
       @user = create(:user)
       @post = create(:post, user: @user)
       @comment = create(:comment, user: @user, post: @post)
